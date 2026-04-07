@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: url("https://assets.nflxext.com/ffe/siteui/vlv3/bg.jpg") no-repeat center center/cover;
+        }
+
+        .overlay {
+            background: rgba(0,0,0,0.7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-box {
+            background: rgba(0,0,0,0.85);
+            padding: 40px;
+            border-radius: 8px;
+            color: white;
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #333;
+            border: none;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: red;
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="overlay">
+    <div class="register-box">
+        <h2>Sign Up</h2>
+
+        <form action="/register" method="post" th:object="${user}">
+            <input type="text" th:field="*{name}" placeholder="Name">
+            <input type="email" th:field="*{email}" placeholder="Email">
+            <input type="password" th:field="*{password}" placeholder="Password">
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="/login">Sign in</a></p>
+    </div>
+</div>
+</body>
+</html>
